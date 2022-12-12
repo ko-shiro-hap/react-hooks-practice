@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import reactLogo from "./assets/react.svg";
 import "./App.css";
+import KoshiroContext from "./main";
 
 function App() {
   const [count, setCount] = useState(0);
+  const KoshiroInfo = useContext(KoshiroContext);
 
   const handleClick = () => {
     setCount(count + 1);
@@ -20,6 +22,11 @@ function App() {
       <h1>useState, useEffect</h1>
       <button onClick={handleClick}>+</button>
       <p>{count}</p>
+
+      <hr />
+      <h1>useContext</h1>
+      <p>{KoshiroInfo.name}</p>
+      <p>{KoshiroInfo.age}</p>
     </div>
   );
 }
